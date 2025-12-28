@@ -1,0 +1,79 @@
+{
+  "Metadata": {
+    "title": "Portail Des Horizons Éducatifs",
+    "description": "Votre chance en or d'étudier gratuitement en Turquie"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "benefits": "Avantages",
+    "requirements": "Conditions",
+    "levels": "Niveaux",
+    "apply": "Postuler",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Bourse Turquie 2026",
+    "subtitle": "Votre chance en or d'étudier gratuitement en Turquie",
+    "slogan": "Nous semons et le silence récolte, nous avançons et les autres suivent.",
+    "cta": "Commencer l'inscription"
+  },
+  "Benefits": {
+    "title": "Avantages de la bourse",
+    "items": {
+      "tuition": "Études universitaires gratuites",
+      "stipend": "Allocation mensuelle jusqu'à 6500",
+      "housing": "Logement universitaire gratuit",
+      "flight": "Billets d'avion aller-retour",
+      "health_language": "Couverture santé complète & 1 an de cours de turc obligatoire"
+    }
+  },
+  "Levels": {
+    "title": "Niveaux d'études",
+    "items": {
+      "license": "Licence (4 ans)",
+      "master": "Master (3 ans)",
+      "doctorate": "Doctorat (4 ans)"
+    },
+    "note": "1 an de cours de turc obligatoire"
+  },
+  "Requirements": {
+    "title": "Conditions d'inscription",
+    "age": {
+      "license": "Moins de 21 ans pour licence",
+      "master": "Moins de 30 ans pour master",
+      "doctorate": "Moins de 35 ans pour doctorat"
+    },
+    "score": {
+      "license": "Licence ≥ 70%",
+      "medical": "Domaine médical ≥ 90%"
+    },
+    "docs_title": "Documents requis",
+    "documents": {
+      "letter": "Lettre de demande (LD)",
+      "cv": "CV",
+      "diplomas": "Diplômes",
+      "passport": "Passeport"
+    }
+  },
+  "Form": {
+    "title": "Inscription / Application",
+    "full_name": "Nom Complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "level": "Niveau d'études",
+    "docs_required": "Documents (Requis)",
+    "upload_hint": "Le téléchargement sera activé après la connexion.",
+    "submit": "Envoyer la demande",
+    "sending": "Envoi en cours...",
+    "success_title": "Demande Reçue !",
+    "success_msg": "Nous vous contacterons bientôt par email."
+  },
+  "Footer": {
+    "contact_us": "Contactez-nous",
+    "phones": [
+      "+90 501 295 05 94",
+      "+223 91 43 74 85"
+    ],
+    "copyright": "© 2025 Portail Des Horizons. Tous droits réservés."
+  }
+}

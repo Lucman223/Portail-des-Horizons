@@ -1,0 +1,79 @@
+{
+    "Metadata": {
+        "title": "Educational Horizons Portal",
+        "description": "Your golden opportunity to study in Turkey for free"
+    },
+    "Navigation": {
+        "home": "Home",
+        "benefits": "Benefits",
+        "requirements": "Requirements",
+        "levels": "Levels",
+        "apply": "Apply Now",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "title": "Turkey Scholarship 2026",
+        "subtitle": "Your golden opportunity to study in Turkey for free",
+        "slogan": "We sow and silence harvests, we move forward and others follow.",
+        "cta": "Start Application"
+    },
+    "Benefits": {
+        "title": "Scholarship Benefits",
+        "items": {
+            "tuition": "Free University Tuition",
+            "stipend": "Monthly Stipend up to 6500",
+            "housing": "Free Student Accommodation",
+            "flight": "Round-trip Flight Tickets",
+            "health_language": "Full Health Coverage & 1 Year Mandatory Turkish Course"
+        }
+    },
+    "Levels": {
+        "title": "Study Levels",
+        "items": {
+            "license": "Bachelor's (4 years)",
+            "master": "Master's (3 years)",
+            "doctorate": "PhD (4 years)"
+        },
+        "note": "1 year mandatory Turkish language course"
+    },
+    "Requirements": {
+        "title": "Application Requirements",
+        "age": {
+            "license": "Under 21 for Bachelor's",
+            "master": "Under 30 for Master's",
+            "doctorate": "Under 35 for PhD"
+        },
+        "score": {
+            "license": "Bachelor's ≥ 70%",
+            "medical": "Medical Fields ≥ 90%"
+        },
+        "docs_title": "Required Documents",
+        "documents": {
+            "letter": "Letter of Intent (LD)",
+            "cv": "CV",
+            "diplomas": "Diplomas",
+            "passport": "Passport"
+        }
+    },
+    "Form": {
+        "title": "Application Form",
+        "full_name": "Full Name",
+        "email": "Email",
+        "phone": "Phone",
+        "level": "Study Level",
+        "docs_required": "Documents (Required)",
+        "upload_hint": "Upload will be enabled after connection.",
+        "submit": "Submit Application",
+        "sending": "Sending...",
+        "success_title": "Application Received!",
+        "success_msg": "We will contact you shortly via email."
+    },
+    "Footer": {
+        "contact_us": "Contact Us",
+        "phones": [
+            "+90 501 295 05 94",
+            "+223 91 43 74 85"
+        ],
+        "copyright": "© 2025 Educational Horizons Portal. All rights reserved."
+    }
+}
