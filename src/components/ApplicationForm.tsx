@@ -7,12 +7,18 @@ import { supabase } from '@/lib/supabase';
 
 export default function ApplicationForm() {
     const t = useTranslations('Form');
-    const tReq = useTranslations('Requirements'); // For doc names if needed, but I used Keys in Form for generic labels? No, let's keep doc names from Requirements if possible or just hardcode as keys are simple.
-    // Actually, I put doc labels in Requirements.documents. I should use that.
+    const tReq = useTranslations('Requirements');
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [files, setFiles] = useState<{ [key: string]: File | null }>({});
+
+    const handleFileChange = (docKey: string, e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFiles(prev => ({ ...prev, [docKey]: e.target.files![0] }));
+        }
+    };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,18 +26,44 @@ export default function ApplicationForm() {
         setError(null);
 
         const formData = new FormData(e.currentTarget);
-        const data = {
-            full_name: formData.get('full_name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            study_level: formData.get('study_level'),
-        };
 
         try {
             if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-                // Verify connection or throw friendly error
                 throw new Error("Database connection missing. Please configure .env variables.");
             }
+
+            const uploadedUrls: string[] = [];
+
+            // 1. Upload Files
+            for (const [key, file] of Object.entries(files)) {
+                if (file) {
+                    const fileExt = file.name.split('.').pop();
+                    const fileName = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}_${key}.${fileExt}`;
+                    const filePath = `${fileName}`;
+
+                    const { error: uploadError } = await supabase.storage
+                        .from('applications')
+                        .upload(filePath, file);
+
+                    if (uploadError) throw new Error(`Upload failed for ${key}: ${uploadError.message}`);
+
+                    // Get Public URL (assuming public bucket) or just store path
+                    const { data: { publicUrl } } = supabase.storage
+                        .from('applications')
+                        .getPublicUrl(filePath);
+
+                    uploadedUrls.push(publicUrl);
+                }
+            }
+
+            // 2. Insert Data
+            const data = {
+                full_name: formData.get('full_name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                study_level: formData.get('study_level'),
+                documents_url: uploadedUrls
+            };
 
             const { error: insertError } = await supabase
                 .from('enrollments')
@@ -96,14 +128,21 @@ export default function ApplicationForm() {
 
             <div className="space-y-4 pt-4">
                 <h3 className="font-bold text-lg border-b border-stone-100 pb-2">{t('docs_required')}</h3>
-                <p className="text-sm text-stone-500 italic">{t('upload_hint')}</p>
                 {['letter', 'cv', 'diplomas', 'passport'].map((docKey) => (
                     <div key={docKey} className="flex items-center justify-between p-4 bg-stone-50 rounded-lg border border-dashed border-stone-300 hover:border-brand-blue transition-colors">
-                        <span className="font-medium text-gray-700">{tReq(`documents.${docKey}`)}</span>
-                        <label className="cursor-pointer bg-white px-4 py-2 rounded-md shadow-sm border border-stone-200 text-sm font-bold hover:bg-stone-50 flex items-center gap-2 opacity-50">
-                            <Upload size={16} />
-                            Upload
-                            <input type="file" disabled className="hidden" />
+                        <span className="font-medium text-gray-700">
+                            {tReq(`documents.${docKey}`)}
+                            {files[docKey] && <span className="ml-2 text-xs text-green-600 font-bold">({files[docKey]?.name})</span>}
+                        </span>
+                        <label className={`cursor-pointer px-4 py-2 rounded-md shadow-sm border border-stone-200 text-sm font-bold flex items-center gap-2 transition-all ${files[docKey] ? 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100' : 'bg-white hover:bg-stone-50'}`}>
+                            {files[docKey] ? <CheckCircle size={16} /> : <Upload size={16} />}
+                            {files[docKey] ? 'Selected' : 'Upload'}
+                            <input
+                                type="file"
+                                className="hidden"
+                                onChange={(e) => handleFileChange(docKey, e)}
+                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                            />
                         </label>
                     </div>
                 ))}
