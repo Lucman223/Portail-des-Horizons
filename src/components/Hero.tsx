@@ -11,7 +11,10 @@ const backgrounds = [
     "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?q=80&w=2000&auto=format&fit=crop", // Blue Mosque
     "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus
     "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?q=80&w=2000&auto=format&fit=crop", // Cappadocia
-    "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop"  // Maiden's Tower
+    "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop", // Maiden's Tower
+    "https://images.unsplash.com/photo-1529963183134-618ad061e131?q=80&w=2000&auto=format&fit=crop", // Pamukkale
+    "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?q=80&w=2000&auto=format&fit=crop", // Ephesus
+    "https://images.unsplash.com/photo-1545459720-aacaf509ebc3?q=80&w=2000&auto=format&fit=crop"  // Galata Tower
 ];
 
 export default function Hero() {
@@ -26,16 +29,16 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-brand-blue-dark text-white py-20">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-blue-dark text-white py-20">
             {/* Dynamic Background Slideshow */}
             <div className="absolute inset-0 z-0">
                 <AnimatePresence mode="popLayout">
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, scale: 1.1 }}
+                        initial={{ opacity: 0, scale: 1.2 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5 }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                         className="absolute inset-0"
                     >
                         <Image
@@ -46,7 +49,7 @@ export default function Hero() {
                             className="object-cover"
                         />
                         {/* Dark Overlay for Text Readability */}
-                        <div className="absolute inset-0 bg-brand-blue-dark/70 mix-blend-multiply" />
+                        <div className="absolute inset-0 bg-brand-blue-dark/60 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-dark via-transparent to-transparent" />
                     </motion.div>
                 </AnimatePresence>
@@ -73,11 +76,21 @@ export default function Hero() {
                     "{t('slogan')}"
                 </p>
 
-                <div className="pt-8 animate-fade-in-up delay-300">
+                <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
                     <Link href="/apply" className="inline-flex items-center px-8 py-4 bg-brand-gold hover:bg-brand-gold-light text-brand-blue-dark font-bold rounded-full text-lg transition-transform hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.6)]">
                         {t('cta')}
                         <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
                     </Link>
+
+                    <a
+                        href="https://wa.me/22391437485?text=Bonjour,%20je%20souhaite%20plus%20d'informations%20sur%20la%20bourse."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-lg rounded-full backdrop-blur-md border border-white/20 transition-transform hover:scale-105"
+                    >
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className="text-[#25D366]"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.933.871 3.16.871l.001-.001c3.181 0 5.768-2.587 5.768-5.766.001-3.18-2.585-5.766-5.766-5.766zm9.261 1.634c1.606 2.376 1.704 5.378.293 7.822-1.411 2.445-4.038 3.944-6.858 3.943l-.004.001c-.004.001-3.321 0-4.634-.447l-4.72 1.24.84-2.12c-1.353-1.39-2.102-3.21-2.103-5.093 0-4.14 3.368-7.508 7.508-7.508 2.006 0 3.892.781 5.309 2.199l3.369-1.037z" fillRule="evenodd" /></svg>
+                        WhatsApp
+                    </a>
                 </div>
             </div>
         </section>
