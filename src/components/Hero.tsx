@@ -8,16 +8,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const backgrounds = [
-    "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?q=80&w=2000&auto=format&fit=crop", // Sultan Ahmed (Blue Mosque)
-    "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus 
-    "https://images.unsplash.com/photo-1519707234608-466d014bc044?q=80&w=2000&auto=format&fit=crop", // Istanbul Bridge
-    "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?q=80&w=2000&auto=format&fit=crop", // Cappadocia Balloons
-    "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop", // Maiden's Tower (Kiz Kulesi)
-    "https://images.unsplash.com/photo-1529963183134-618ad061e131?q=80&w=2000&auto=format&fit=crop", // Pamukkale
-    "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?q=80&w=2000&auto=format&fit=crop", // Ephesus
-    "https://images.unsplash.com/photo-1545459720-aacaf509ebc3?q=80&w=2000&auto=format&fit=crop",  // Galata Tower
-    "https://images.unsplash.com/photo-1535916707213-3846a48f6ea2?q=80&w=2000&auto=format&fit=crop", // Hagia Sophia
-    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000&auto=format&fit=crop"  // Kas (Coast)
+    "/images/hero/hero-1.jpg", // Sultan Ahmed (Blue Mosque)
+    "/images/hero/hero-2.jpg", // Bosphorus 
+    "/images/hero/hero-3.jpg", // Istanbul Bridge
+    "/images/hero/hero-4.jpg", // Cappadocia Balloons
+    "/images/hero/hero-5.jpg", // Maiden's Tower (Kiz Kulesi)
+    "/images/hero/hero-6.jpg", // Pamukkale
+    "/images/hero/hero-7.jpg", // Ephesus
+    "/images/hero/hero-8.jpg", // Galata Tower
+    "/images/hero/hero-9.jpg", // Hagia Sophia
+    "/images/hero/hero-10.jpg" // Kas (Coast)
 ];
 
 export default function Hero() {
