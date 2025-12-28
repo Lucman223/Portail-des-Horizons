@@ -66,7 +66,7 @@
         "submit": "Submit Application",
         "sending": "Sending...",
         "success_title": "Application Received!",
-        "success_msg": "We will contact you shortly via email."
+        "success_msg": "We will contact you exclusively via WhatsApp. Please click below to confirm your submission."
     },
     "Footer": {
         "contact_us": "Contact Us",

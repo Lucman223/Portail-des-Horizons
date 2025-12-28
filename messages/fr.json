@@ -66,7 +66,7 @@
     "submit": "Envoyer la demande",
     "sending": "Envoi en cours...",
     "success_title": "Demande Reçue !",
-    "success_msg": "Nous vous contacterons bientôt par email."
+    "success_msg": "Nous vous contacterons exclusivement par WhatsApp. Veuillez cliquer ci-dessous pour confirmer votre envoi."
   },
   "Footer": {
     "contact_us": "Contactez-nous",
