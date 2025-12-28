@@ -4,6 +4,7 @@ import { Link, usePathname, useRouter } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import { Globe, Menu } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
     const t = useTranslations('Navigation');
@@ -19,13 +20,11 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-stone-100 shadow-sm">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-brand-gold shadow-md">
-                        <img src="/logo.jpeg" alt="Portail Des Horizons Logo" className="object-cover w-full h-full" />
+                <Link href="/" className="flex items-center gap-2">
+                    <div className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-brand-gold shadow-md">
+                        <Image src="/logo1.jpeg" alt="Portail Logo" fill className="object-cover" />
                     </div>
-                    <span className="text-xl font-extrabold text-brand-blue-dark tracking-tight hidden sm:block">
-                        PORTAIL<span className="text-brand-gold">.</span>
-                    </span>
+                    <span className="font-bold text-xl text-brand-blue-dark tracking-tight hidden sm:block">Portail Des Horizons</span>
                 </Link>
 
                 {/* Desktop Menu */}

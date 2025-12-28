@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
     const t = useTranslations('Footer');
@@ -10,12 +11,12 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Brand */}
                     <div className="space-y-6">
-                        <h3 className="text-2xl font-bold text-white flex items-center gap-2">
-                            <div className="w-10 h-10 overflow-hidden rounded-md border border-brand-gold/50">
-                                <img src="/logo.jpeg" alt="Logo" className="object-cover w-full h-full" />
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-brand-gold">
+                                <Image src="/logo1.jpeg" alt="Logo" fill className="object-cover" />
                             </div>
-                            PORTAIL DES HORIZONS
-                        </h3>
+                            <span className="font-bold text-2xl text-white">Portail Des Horizons</span>
+                        </div>
                         <p className="leading-relaxed text-stone-500 max-w-sm">
                             "Nous semons et le silence récolte, nous avançons et les autres suivent."
                             <br />
