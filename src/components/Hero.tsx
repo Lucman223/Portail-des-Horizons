@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
