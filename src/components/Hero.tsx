@@ -9,9 +9,10 @@ import Image from 'next/image';
 
 const backgrounds = [
     "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?q=80&w=2000&auto=format&fit=crop", // Blue Mosque
-    "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus
+    "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus (Generic)
+    "https://images.unsplash.com/photo-1519707234608-466d014bc044?q=80&w=2000&auto=format&fit=crop", // Bosphorus Bridge (Istanbul)
     "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?q=80&w=2000&auto=format&fit=crop", // Cappadocia
-    "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop", // Maiden's Tower
+    "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop", // Maiden's Tower (Kiz Kulesi)
     "https://images.unsplash.com/photo-1529963183134-618ad061e131?q=80&w=2000&auto=format&fit=crop", // Pamukkale
     "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?q=80&w=2000&auto=format&fit=crop", // Ephesus
     "https://images.unsplash.com/photo-1545459720-aacaf509ebc3?q=80&w=2000&auto=format&fit=crop"  // Galata Tower
@@ -29,7 +30,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-blue-dark text-white py-20">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black text-white py-20">
             {/* Dynamic Background Slideshow */}
             <div className="absolute inset-0 z-0">
                 <AnimatePresence mode="popLayout">
@@ -48,9 +49,9 @@ export default function Hero() {
                             priority
                             className="object-cover"
                         />
-                        {/* Dark Overlay for Text Readability */}
-                        <div className="absolute inset-0 bg-brand-blue-dark/60 mix-blend-multiply" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-dark via-transparent to-transparent" />
+                        {/* Dark Overlay for Text Readability - Neutral Black */}
+                        <div className="absolute inset-0 bg-black/50" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                     </motion.div>
                 </AnimatePresence>
             </div>
