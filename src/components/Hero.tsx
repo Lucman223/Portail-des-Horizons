@@ -8,14 +8,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const backgrounds = [
-    "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?q=80&w=2000&auto=format&fit=crop", // Blue Mosque
-    "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus (Generic)
-    "https://images.unsplash.com/photo-1519707234608-466d014bc044?q=80&w=2000&auto=format&fit=crop", // Bosphorus Bridge (Istanbul)
-    "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?q=80&w=2000&auto=format&fit=crop", // Cappadocia
+    "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a6b?q=80&w=2000&auto=format&fit=crop", // Sultan Ahmed (Blue Mosque)
+    "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000&auto=format&fit=crop", // Bosphorus 
+    "https://images.unsplash.com/photo-1519707234608-466d014bc044?q=80&w=2000&auto=format&fit=crop", // Istanbul Bridge
+    "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?q=80&w=2000&auto=format&fit=crop", // Cappadocia Balloons
     "https://images.unsplash.com/photo-1527838832700-50592524d78c?q=80&w=2000&auto=format&fit=crop", // Maiden's Tower (Kiz Kulesi)
     "https://images.unsplash.com/photo-1529963183134-618ad061e131?q=80&w=2000&auto=format&fit=crop", // Pamukkale
     "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?q=80&w=2000&auto=format&fit=crop", // Ephesus
-    "https://images.unsplash.com/photo-1545459720-aacaf509ebc3?q=80&w=2000&auto=format&fit=crop"  // Galata Tower
+    "https://images.unsplash.com/photo-1545459720-aacaf509ebc3?q=80&w=2000&auto=format&fit=crop",  // Galata Tower
+    "https://images.unsplash.com/photo-1535916707213-3846a48f6ea2?q=80&w=2000&auto=format&fit=crop", // Hagia Sophia
+    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000&auto=format&fit=crop"  // Kas (Coast)
 ];
 
 export default function Hero() {
@@ -33,20 +35,20 @@ export default function Hero() {
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black text-white py-20">
             {/* Dynamic Background Slideshow */}
             <div className="absolute inset-0 z-0">
-                <AnimatePresence mode="popLayout">
+                <AnimatePresence>
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, scale: 1.2 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
+                        initial={{ opacity: 0, scale: 1.1, zIndex: 1 }}
+                        animate={{ opacity: 1, scale: 1, zIndex: 2 }}
+                        exit={{ opacity: 1, zIndex: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
                         className="absolute inset-0"
                     >
                         <Image
                             src={backgrounds[index]}
                             alt="Turkey Landscape"
                             fill
-                            priority
+                            priority={true}
                             className="object-cover"
                         />
                         {/* Dark Overlay for Text Readability - Neutral Black */}
