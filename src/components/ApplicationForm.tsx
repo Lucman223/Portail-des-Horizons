@@ -87,7 +87,17 @@ export default function ApplicationForm() {
                     <CheckCircle size={48} />
                 </div>
                 <h2 className="text-3xl font-bold text-brand-blue-dark mb-4">{t('success_title')}</h2>
-                <p className="text-lg text-gray-600">{t('success_msg')}</p>
+                <p className="text-lg text-gray-600 mb-8">{t('success_msg')}</p>
+
+                <a
+                    href="https://wa.me/22391437485?text=Bonjour,%20je%20viens%20d'envoyer%20ma%20candidature%20sur%20la%20plateforme."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold text-lg rounded-full hover:bg-[#20b858] transition-transform hover:scale-105 shadow-lg"
+                >
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.029.575 1.933.871 3.16.871l.001-.001c3.181 0 5.768-2.587 5.768-5.766.001-3.18-2.585-5.766-5.766-5.766zm9.261 1.634c1.606 2.376 1.704 5.378.293 7.822-1.411 2.445-4.038 3.944-6.858 3.943l-.004.001c-.004.001-3.321 0-4.634-.447l-4.72 1.24.84-2.12c-1.353-1.39-2.102-3.21-2.103-5.093 0-4.14 3.368-7.508 7.508-7.508 2.006 0 3.892.781 5.309 2.199l3.369-1.037z" fillRule="evenodd" /></svg>
+                    Contacter sur WhatsApp
+                </a>
             </div>
         )
     }
