@@ -23,45 +23,69 @@ const backgrounds = [
 export default function Hero() {
     const t = useTranslations('Hero');
     const [index, setIndex] = useState(0);
+    const [prevIndex, setPrevIndex] = useState(0);
+
+    // Initial preload of all images to ensure smooth loop
+    useEffect(() => {
+        backgrounds.forEach((src) => {
+            const img = new window.Image();
+            img.src = src;
+        });
+    }, []);
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setIndex((prev) => (prev + 1) % backgrounds.length);
-        }, 5000);
+            setIndex((current) => {
+                setPrevIndex(current); // Set current image as the "background"
+                return (current + 1) % backgrounds.length; // Set new image as the "foreground"
+            });
+        }, 6000); // 6 seconds per slide
         return () => clearInterval(timer);
     }, []);
 
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black text-white py-20">
-            {/* Dynamic Background Slideshow */}
-            <div className="absolute inset-0 z-0">
-                <AnimatePresence>
+            {/* Background Layer: Previous Image (Always Visible - prevents black gap) */}
+            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image
+                    src={backgrounds[prevIndex]}
+                    alt="Background"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
+
+            {/* Foreground Layer: Current Image (Fades In) */}
+            <div className="absolute inset-0 z-10 select-none pointer-events-none">
+                <AnimatePresence mode="sync">
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, scale: 1.1, zIndex: 1 }}
-                        animate={{ opacity: 1, scale: 1, zIndex: 2 }}
-                        exit={{ opacity: 1, zIndex: 0 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                         className="absolute inset-0"
                     >
                         <Image
                             src={backgrounds[index]}
                             alt="Turkey Landscape"
                             fill
-                            priority={true}
+                            priority
                             className="object-cover"
                         />
-                        {/* Dark Overlay for Text Readability - Neutral Black */}
-                        <div className="absolute inset-0 bg-black/50" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                        {/* Neutral Overlay attached to image */}
                     </motion.div>
                 </AnimatePresence>
             </div>
 
-            {/* Golden Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-gold opacity-20 blur-[100px] rounded-full z-10 pointer-events-none"></div>
+            {/* Constant Dark Overlay (Consistent across all images) */}
+            <div className="absolute inset-0 z-20 bg-black/40 pointer-events-none" />
+            <div className="absolute inset-0 z-20 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
 
-            <div className="relative z-20 text-center px-4 max-w-5xl mx-auto space-y-8">
+            {/* Golden Glow Effect */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-gold opacity-20 blur-[100px] rounded-full z-30 pointer-events-none"></div>
+
+            <div className="relative z-30 text-center px-4 max-w-5xl mx-auto space-y-8">
                 <div className="animate-fade-in-up">
                     <span className="inline-block py-1 px-3 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/40 mb-4 font-medium backdrop-blur-md shadow-lg">
                         2026 Edition
