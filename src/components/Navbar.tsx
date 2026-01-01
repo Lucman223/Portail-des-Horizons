@@ -89,18 +89,18 @@ export default function Navbar() {
 
             {/* Mobile Menu Overlay */}
             {isOpen && (
-                <div className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6 flex flex-col gap-6 animate-in slide-in-from-top-10 fade-in duration-200">
-                    <div className="flex flex-col space-y-4">
+                <div className="absolute top-full left-4 right-4 z-40 bg-white md:hidden p-6 flex flex-col gap-4 rounded-2xl shadow-2xl border border-stone-100 animate-in slide-in-from-top-2 fade-in duration-200 mt-2">
+                    <div className="flex flex-col space-y-2">
                         <Link
                             href="/universities"
-                            className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                            className="text-lg font-medium text-stone-600 py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             {t('universities')}
                         </Link>
                         <Link
                             href="/partners"
-                            className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                            className="text-lg font-medium text-stone-600 py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             {t('partners')}
@@ -109,20 +109,22 @@ export default function Navbar() {
                             <Link
                                 key={key}
                                 href={`/#${key}`}
-                                className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                                className="text-lg font-medium text-stone-600 py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {t(key)}
                             </Link>
                         ))}
                     </div>
-                    <Link
-                        href="/apply"
-                        className="bg-brand-blue text-white px-6 py-4 rounded-xl font-bold text-center shadow-lg active:scale-95 transition-transform"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        {t('apply')}
-                    </Link>
+                    <div className="border-t border-stone-100 pt-4">
+                        <Link
+                            href="/apply"
+                            className="bg-brand-blue text-white px-6 py-3 rounded-xl font-bold text-center shadow-md active:scale-95 transition-transform block"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('apply')}
+                        </Link>
+                    </div>
                 </div>
             )}
         </nav>
