@@ -59,9 +59,9 @@ export default function Benefits() {
                             <div
                                 key={key}
                                 onClick={() => handleBenefitClick(key)}
-                                className={`bg-stone-50 p-8 rounded-2xl border border-stone-100 hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all hover:-translate-y-1 group duration-300 ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''} ${interactive ? 'cursor-pointer active:scale-95' : ''}`}
+                                className={`bg-stone-50 p-8 rounded-2xl border border-stone-100 md:hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all md:hover:-translate-y-1 group duration-300 ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''} ${interactive ? 'cursor-pointer active:scale-95' : ''}`}
                             >
-                                <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-white transition-colors text-brand-blue duration-300">
+                                <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 md:group-hover:bg-brand-gold md:group-hover:text-white transition-colors text-brand-blue duration-300">
                                     <Icon size={32} strokeWidth={1.5} />
                                 </div>
                                 <p className="text-xl font-bold text-brand-blue-dark leading-tight">

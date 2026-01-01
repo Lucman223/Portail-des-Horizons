@@ -4,13 +4,109 @@
     "description": "Votre chance en or d'étudier en Turquie"
   },
   "Navigation": {
-    "home": "Accueil",
-    "benefits": "Avantages",
-    "requirements": "Conditions",
-    "levels": "Niveaux",
-    "apply": "Postuler",
     "partners": "Partenaires",
-    "contact": "Contact"
+    "universities": "Universités",
+    "benefits": "Avantages",
+    "levels": "Niveaux",
+    "requirements": "Conditions",
+    "contact": "Contact",
+    "apply": "Postuler"
+  },
+  "Universities": {
+    "title": "Étudier en Turquie : Votre Guide Complet",
+    "subtitle": "Universités Publiques et Privées",
+    "description": "La Turquie est devenue une destination de choix pour les étudiants internationaux, offrant un enseignement de qualité, une richesse culturelle et des opportunités uniques. Que vous envisagiez une université publique ou privée, voici les informations essentielles pour préparer votre projet d'études.",
+    "general_conditions": {
+      "title": "Conditions Générales d'Admission",
+      "items": [
+        {
+          "title": "Nationalité",
+          "content": "Ne pas posséder la nationalité turque."
+        },
+        {
+          "title": "Diplôme Secondaire",
+          "content": "Avoir terminé avec succès vos études secondaires (ou être en dernière année), avec un diplôme reconnu comme équivalent au baccalauréat turc."
+        },
+        {
+          "title": "Passeport",
+          "content": "Un passeport valide est indispensable."
+        },
+        {
+          "title": "Moyens Financiers",
+          "content": "Justifier de ressources financières suffisantes pour couvrir vos frais de scolarité et de subsistance."
+        },
+        {
+          "title": "Logement",
+          "content": "Fournir une preuve de logement en Turquie."
+        },
+        {
+          "title": "Documents Académiques",
+          "content": "Présenter vos relevés de notes et certificats d'études antérieurs, souvent traduits en turc et notariés."
+        },
+        {
+          "title": "Permis de Séjour",
+          "content": "Obtenir un permis de séjour étudiant si votre séjour dépasse 90 jours."
+        }
+      ]
+    },
+    "public_universities": {
+      "title": "Focus sur les Universités Publiques",
+      "description": "Les universités publiques turques sont réputées pour leur excellence académique et leurs frais de scolarité abordables.",
+      "items": [
+        {
+          "title": "Examen YÖS",
+          "content": "L'admission en premier cycle requiert souvent la réussite à l'examen YÖS (Yabancı Uyruklu Öğrenci Sınavı), un test d'aptitude pour les étudiants étrangers. Un score élevé est crucial, surtout pour les filières très demandées comme la médecine ou l'ingénierie. Certaines universités peuvent accepter des examens internationaux comme le SAT."
+        },
+        {
+          "title": "Langue d'Enseignement",
+          "content": "L'enseignement est majoritairement en turc. Un certificat de maîtrise de la langue (TÖMER) est souvent exigé. Des cours préparatoires de turc sont disponibles pour vous aider à atteindre le niveau requis."
+        },
+        {
+          "title": "Coût",
+          "content": "Les frais de scolarité sont généralement très compétitifs, variant de 700 € à 1 500 € par an."
+        }
+      ]
+    },
+    "private_universities": {
+      "title": "Focus sur les Universités Privées",
+      "description": "Les universités privées offrent une grande flexibilité, des programmes souvent en anglais et des infrastructures modernes.",
+      "items": [
+        {
+          "title": "Admission Simplifiée",
+          "content": "L'admission se fait fréquemment sans l'examen YÖS, basée sur l'excellence de votre dossier scolaire (moyenne générale du diplôme secondaire). Des résultats à des examens internationaux (comme le SAT) peuvent être demandés par certaines institutions."
+        },
+        {
+          "title": "Langue d'Enseignement",
+          "content": "De nombreux programmes sont proposés en anglais, en plus du turc. Pour les cursus anglophones, un certificat de compétence linguistique (TOEFL/IELTS) est généralement requis. Si vous n'en avez pas, l'université peut organiser un test interne ou vous orienter vers des cours préparatoires."
+        },
+        {
+          "title": "Coût",
+          "content": "Les frais de scolarité sont plus élevés que dans le public, allant de 3 000 € à 20 000 € par an, selon l'université et la filière choisie."
+        }
+      ]
+    },
+    "graduate_studies": {
+      "title": "Études de Master et Doctorat",
+      "description": "La Turquie propose également d'excellents programmes de troisième cycle.",
+      "items": [
+        {
+          "title": "Exigences",
+          "content": "Un diplôme de licence est requis pour le Master (durée de 1 à 2 ans) et un diplôme de Master pour le Doctorat (environ 4 ans). Un dossier solide incluant relevés de notes, CV et parfois des lettres de recommandation est essentiel."
+        },
+        {
+          "title": "Examens",
+          "content": "L'examen YÖS n'est généralement pas requis. Cependant, des scores élevés aux examens ALES, GRE ou GMAT peuvent être demandés par certaines universités."
+        },
+        {
+          "title": "Compétence Linguistique",
+          "content": "Une maîtrise de l'anglais (TOEFL/IELTS) ou du turc (TÖMER) est souvent exigée."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à Commencer Votre Aventure ?",
+      "text": "Nous sommes là pour vous accompagner à chaque étape de votre projet. N'hésitez pas à nous contacter pour des conseils personnalisés et pour vous aider à naviguer dans le processus d'admission."
+    }
   },
   "Hero": {
     "title": "Bourse Turquie 2026",

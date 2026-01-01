@@ -1,10 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
 import { submitPartnership } from '@/actions/partners';
-import { Building2, Handshake, Globe2, Send } from 'lucide-react';
+import { Handshake, Building2, GraduationCap, ArrowRight, CheckCircle2, Loader2, Send } from 'lucide-react';
 
 function SubmitButton({ label }: { label: string }) {
     const { pending } = useFormStatus();

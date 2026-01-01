@@ -29,11 +29,14 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <Link href="/universities" className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
+                        {t('universities')}
+                    </Link>
                     <Link href="/partners" className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
                         {t('partners')}
                     </Link>
                     {['benefits', 'levels', 'requirements', 'contact'].map((key) => (
-                        <Link key={key} href={`#${key}`} className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
+                        <Link key={key} href={`/#${key}`} className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
                             {t(key)}
                         </Link>
                     ))}
@@ -77,6 +80,13 @@ export default function Navbar() {
                 <div className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6 flex flex-col gap-6 animate-in slide-in-from-top-10 fade-in duration-200">
                     <div className="flex flex-col space-y-4">
                         <Link
+                            href="/universities"
+                            className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('universities')}
+                        </Link>
+                        <Link
                             href="/partners"
                             className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
                             onClick={() => setIsOpen(false)}
@@ -86,7 +96,7 @@ export default function Navbar() {
                         {['benefits', 'levels', 'requirements', 'contact'].map((key) => (
                             <Link
                                 key={key}
-                                href={`#${key}`}
+                                href={`/#${key}`}
                                 className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
                                 onClick={() => setIsOpen(false)}
                             >
