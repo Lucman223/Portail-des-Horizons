@@ -82,36 +82,7 @@ export default function Hero() {
                             priority
                             className="object-cover"
                         />
-
-                        {/* Location Metadata Overlay */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1, duration: 1 }}
-                            className="absolute bottom-8 right-8 z-30 hidden md:block" // Hidden on small mobile to avoid clutter, visible on larger screens
-                        >
-                            <div className="bg-black/30 backdrop-blur-md border border-white/20 p-4 rounded-xl text-end shadow-2xl">
-                                <p className="text-white font-bold text-lg tracking-wide">{backgrounds[index].name}</p>
-                                <div className="flex items-center justify-end gap-2 text-brand-gold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                                    <span className="text-sm font-medium uppercase tracking-wider">{backgrounds[index].location}</span>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Mobile simplified version */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1 }}
-                            className="absolute bottom-4 left-4 z-30 md:hidden"
-                        >
-                            <div className="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                                <span className="text-xs font-bold text-white shadow-sm">{backgrounds[index].location}</span>
-                            </div>
-                        </motion.div>
-
+                        {/* Neutral Overlay attached to image */}
                     </motion.div>
                 </AnimatePresence>
             </div>
@@ -122,6 +93,45 @@ export default function Hero() {
 
             {/* Golden Glow Effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-gold opacity-20 blur-[100px] rounded-full z-30 pointer-events-none"></div>
+
+            {/* Location Metadata Overlay - Moved outside to sit on TOP of overlays */}
+            <div className="absolute inset-0 z-40 pointer-events-none">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute bottom-8 right-8 hidden md:block" // Desktop
+                    >
+                        <div className="bg-black/40 backdrop-blur-md border border-white/20 p-4 rounded-xl text-end shadow-2xl">
+                            <p className="text-white font-bold text-lg tracking-wide">{backgrounds[index].name}</p>
+                            <div className="flex items-center justify-end gap-2 text-brand-gold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                <span className="text-sm font-medium uppercase tracking-wider">{backgrounds[index].location}</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* Mobile version */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute bottom-8 left-6 md:hidden"
+                    >
+                        <div className="bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 flex items-center gap-2 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                            <span className="text-xs font-bold text-white tracking-wide">{backgrounds[index].location}</span>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
 
             <div className="relative z-30 text-center px-4 max-w-5xl mx-auto space-y-8">
                 <div className="animate-fade-in-up">
