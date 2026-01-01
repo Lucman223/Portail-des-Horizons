@@ -9,10 +9,10 @@ import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 const backgrounds = [
-    { src: "/images/hero/hero-1.jpg", name: "Grande Mosquée de Djenné", location: "Mali" }, // Placeholder for Mali
-    { src: "/images/hero/hero-2.jpg", name: "Monument de la Renaissance", location: "Sénégal" }, // Placeholder for Senegal
-    { src: "/images/hero/hero-3.jpg", name: "Basilique Notre-Dame de la Paix", location: "Côte d'Ivoire" }, // Placeholder for CIV
-    { src: "/images/hero/hero-5.jpg", name: "Voile de la Mariée", location: "Guinée" }, // Placeholder for Guinea
+    { src: "/images/hero/mali.jpg", name: "Grande Mosquée de Djenné", location: "Mali" },
+    { src: "/images/hero/senegal.jpg", name: "Monument de la Renaissance", location: "Sénégal" },
+    { src: "/images/hero/civ.jpg", name: "Basilique Notre-Dame de la Paix", location: "Côte d'Ivoire" },
+    { src: "/images/hero/guinee.jpg", name: "Voile de la Mariée", location: "Guinée" },
     { src: "/images/hero/hero-1.jpg", name: "Sultan Ahmed Mosque (Blue Mosque)", location: "Istanbul" },
     { src: "/images/hero/hero-2.jpg", name: "Bosphorus Bridge", location: "Istanbul" },
     { src: "/images/hero/hero-4.jpg", name: "Hot Air Balloons", location: "Cappadocia, Nevşehir" },
