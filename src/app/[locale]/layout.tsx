@@ -43,7 +43,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir}>
-      <body className={`${fontClass} antialiased bg-stone-50 text-stone-900`}>
+      <body className={`${fontClass} antialiased bg-stone-50 text-stone-900`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Tracker />
           <Navbar />
