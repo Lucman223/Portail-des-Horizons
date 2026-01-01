@@ -9,11 +9,13 @@ import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 const backgrounds = [
+    { src: "/images/hero/hero-1.jpg", name: "Grande Mosquée de Djenné", location: "Mali" }, // Placeholder for Mali
+    { src: "/images/hero/hero-2.jpg", name: "Monument de la Renaissance", location: "Sénégal" }, // Placeholder for Senegal
+    { src: "/images/hero/hero-3.jpg", name: "Basilique Notre-Dame de la Paix", location: "Côte d'Ivoire" }, // Placeholder for CIV
+    { src: "/images/hero/hero-5.jpg", name: "Voile de la Mariée", location: "Guinée" }, // Placeholder for Guinea
     { src: "/images/hero/hero-1.jpg", name: "Sultan Ahmed Mosque (Blue Mosque)", location: "Istanbul" },
     { src: "/images/hero/hero-2.jpg", name: "Bosphorus Bridge", location: "Istanbul" },
-    { src: "/images/hero/hero-3.jpg", name: "15 July Martyrs Bridge", location: "Istanbul" },
     { src: "/images/hero/hero-4.jpg", name: "Hot Air Balloons", location: "Cappadocia, Nevşehir" },
-    { src: "/images/hero/hero-5.jpg", name: "Maiden's Tower (Kız Kulesi)", location: "Istanbul" },
     { src: "/images/hero/hero-6.jpg", name: "Travertines of Pamukkale", location: "Denizli" },
     { src: "/images/hero/hero-7.jpg", name: "Library of Celsus", location: "Ephesus, Izmir" },
     { src: "/images/hero/hero-8.jpg", name: "Galata Tower", location: "Istanbul" },
