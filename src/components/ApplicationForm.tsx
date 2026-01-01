@@ -128,7 +128,7 @@ export default function ApplicationForm() {
                 </div>
                 <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-700">{t('level')}</label>
-                    <select name="study_level" className="w-full p-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-brand-gold outline-none">
+                    <select name="study_level" className="w-full p-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-brand-gold outline-none bg-white">
                         <option value="Licence">Licence</option>
                         <option value="Master">Master</option>
                         <option value="Doctorat">Doctorat</option>
@@ -138,7 +138,7 @@ export default function ApplicationForm() {
 
             <div className="space-y-4 pt-4">
                 <h3 className="font-bold text-lg border-b border-stone-100 pb-2">{t('docs_required')}</h3>
-                {['letter', 'cv', 'diplomas', 'passport'].map((docKey) => (
+                {['letter', 'cv', 'diplomas', 'passport', 'recommendation', 'photo'].map((docKey) => (
                     <div key={docKey} className="flex items-center justify-between p-4 bg-stone-50 rounded-lg border border-dashed border-stone-300 hover:border-brand-blue transition-colors">
                         <span className="font-medium text-gray-700">
                             {tReq(`documents.${docKey}`)}

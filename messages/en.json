@@ -52,7 +52,9 @@
             "letter": "Letter of Intent (LD)",
             "cv": "CV",
             "diplomas": "Diplomas",
-            "passport": "Passport"
+            "passport": "Passport",
+            "recommendation": "Recommendation Letter",
+            "photo": "Selfie with white background"
         }
     },
     "Form": {

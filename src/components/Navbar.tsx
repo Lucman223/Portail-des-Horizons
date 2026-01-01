@@ -13,8 +13,11 @@ export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
+    const [isLangOpen, setIsLangOpen] = useState(false);
+
     const handleLocaleChange = (newLocale: string) => {
         router.replace(pathname, { locale: newLocale });
+        setIsLangOpen(false);
     };
 
     return (
@@ -45,23 +48,32 @@ export default function Navbar() {
                 {/* Actions */}
                 <div className="flex items-center gap-4">
                     {/* Language Dropdown */}
-                    <div className="relative group">
-                        <button className="flex items-center gap-2 px-3 py-2 hover:bg-stone-50 rounded-full transition-colors border border-transparent hover:border-stone-200">
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsLangOpen(!isLangOpen)}
+                            className="flex items-center gap-2 px-3 py-2 hover:bg-stone-50 rounded-full transition-colors border border-transparent hover:border-stone-200"
+                        >
                             <Globe size={18} className="text-stone-600" />
                             <span className="uppercase font-bold text-sm text-stone-700">{locale}</span>
                         </button>
-                        <div className="absolute top-full end-0 mt-2 bg-white rounded-xl shadow-xl border border-stone-100 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-right w-40 z-50">
-                            {['fr', 'en', 'ar'].map((l) => (
-                                <button
-                                    key={l}
-                                    onClick={() => handleLocaleChange(l)}
-                                    className={`w-full text-start px-4 py-2 rounded-lg text-sm font-medium hover:bg-stone-50 transition-colors flex items-center justify-between ${locale === l ? 'text-brand-gold bg-stone-50' : 'text-stone-600'}`}
-                                >
-                                    <span>{l === 'fr' ? 'Français' : l === 'ar' ? 'العربية' : 'English'}</span>
-                                    {locale === l && <span className="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>}
-                                </button>
-                            ))}
-                        </div>
+
+                        {isLangOpen && (
+                            <>
+                                <div className="fixed inset-0 z-30" onClick={() => setIsLangOpen(false)}></div>
+                                <div className="absolute top-full end-0 mt-2 bg-white rounded-xl shadow-xl border border-stone-100 p-2 transform origin-top-right w-40 z-40 animate-in fade-in zoom-in-95 duration-100">
+                                    {['fr', 'en', 'ar'].map((l) => (
+                                        <button
+                                            key={l}
+                                            onClick={() => handleLocaleChange(l)}
+                                            className={`w-full text-start px-4 py-2 rounded-lg text-sm font-medium hover:bg-stone-50 transition-colors flex items-center justify-between ${locale === l ? 'text-brand-gold bg-stone-50' : 'text-stone-600'}`}
+                                        >
+                                            <span>{l === 'fr' ? 'Français' : l === 'ar' ? 'العربية' : 'English'}</span>
+                                            {locale === l && <span className="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>}
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
 
                     <Link href="/apply" className="hidden md:inline-flex bg-brand-blue text-white px-6 py-2.5 rounded-full font-bold hover:bg-brand-blue-dark transition-all shadow-lg hover:shadow-brand-blue/30 hover:-translate-y-0.5">
