@@ -1,16 +1,18 @@
 import { useTranslations } from 'next-intl';
-import { Clock, FileText, UserSquare2, GraduationCap, Plane, CheckCircle2, AlertOctagon } from 'lucide-react';
+import { Clock, FileText, UserSquare2, GraduationCap, Plane, CheckCircle2, AlertOctagon, StickyNote, Camera } from 'lucide-react';
 
 const docsIcons = {
     letter: FileText,
     cv: UserSquare2,
     diplomas: GraduationCap,
-    passport: Plane
+    passport: Plane,
+    recommendation: StickyNote,
+    photo: Camera
 };
 
 export default function Requirements() {
     const t = useTranslations('Requirements');
-    const docKeys = ['letter', 'cv', 'diplomas', 'passport'] as const;
+    const docKeys = ['letter', 'cv', 'diplomas', 'passport', 'recommendation', 'photo'] as const;
 
     return (
         <section className="py-24 bg-stone-50">
@@ -52,6 +54,10 @@ export default function Requirements() {
                                     <li className="flex items-center p-4 bg-green-50 border border-green-100 rounded-lg">
                                         <span className="text-green-600 font-bold me-3">✓</span>
                                         <span className="text-lg font-bold text-gray-800">{t('score.license')}</span>
+                                    </li>
+                                    <li className="flex items-center p-4 bg-blue-50 border border-blue-100 rounded-lg">
+                                        <span className="text-blue-600 font-bold me-3">✓</span>
+                                        <span className="text-lg font-bold text-gray-800">{t('score.graduate')}</span>
                                     </li>
                                     <li className="flex items-center p-4 bg-red-50 border border-red-100 rounded-lg">
                                         <AlertOctagon className="text-red-500 me-3" size={20} />

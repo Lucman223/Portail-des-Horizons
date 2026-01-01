@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Outfit, Cairo } from "next/font/google"; // Premium fonts
 import "../globals.css"; // Correct path to globals.css
+import Tracker from "@/components/Tracker";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir}>
       <body className={`${fontClass} antialiased bg-stone-50 text-stone-900`}>
         <NextIntlClientProvider messages={messages}>
+          <Tracker />
           {children}
         </NextIntlClientProvider>
       </body>

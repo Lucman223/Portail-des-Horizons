@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Portail Des Horizons Éducatifs",
-    "description": "Votre chance en or d'étudier gratuitement en Turquie"
+    "description": "Votre chance en or d'étudier en Turquie"
   },
   "Navigation": {
     "home": "Accueil",
@@ -9,22 +9,43 @@
     "requirements": "Conditions",
     "levels": "Niveaux",
     "apply": "Postuler",
+    "partners": "Partenaires",
     "contact": "Contact"
   },
   "Hero": {
     "title": "Bourse Turquie 2026",
-    "subtitle": "Votre chance en or d'étudier gratuitement en Turquie",
+    "subtitle": "Votre chance en or d'étudier en Turquie",
     "slogan": "Nous semons et le silence récolte, nous avançons et les autres suivent.",
     "cta": "Commencer l'inscription"
   },
   "Benefits": {
     "title": "Avantages de la bourse",
     "items": {
-      "tuition": "Études universitaires gratuites",
-      "stipend": "Allocation mensuelle jusqu'à 6500",
-      "housing": "Logement universitaire gratuit",
+      "tuition": "Études universitaires",
+      "stipend": "Allocation mensuelle",
+      "housing": "Logement universitaire",
       "flight": "Billets d'avion aller-retour",
       "health_language": "Couverture santé complète & 1 an de cours de turc obligatoire"
+    },
+    "housing_details": {
+      "diyanet": {
+        "title": "Bourse de la Présidence des Affaires Religieuses de Turquie (Diyanet) :",
+        "p1": "Cette bourse offre un logement gratuit aux étudiants de licence, de master et de doctorat.",
+        "p2": "Pour les étudiants en master et en doctorat, il est possible de choisir entre le logement universitaire ou la location d’un appartement privé. En cas de choix d’un logement externe, les frais de loyer sont à la charge de l’étudiant."
+      },
+      "government": {
+        "title": "Bourse du gouvernement turc :",
+        "p1": "Elle offre un logement gratuit uniquement aux étudiants de licence.",
+        "p2": "Quant aux étudiants en master et en doctorat, une allocation mensuelle leur est accordée, équivalente au coût moyen du logement en Turquie, leur permettant de choisir librement leur lieu de résidence."
+      }
+    },
+    "tuition_details": {
+      "title": "Études universitaires gratuites",
+      "content": "Les études en Turquie dans le cadre des bourses sont entièrement gratuites une fois le candidat admis, et ce à tous les niveaux universitaires, y compris le master et le doctorat. La bourse couvre l’ensemble des frais de scolarité, en plus d’offrir divers avantages tels que le logement ou une allocation mensuelle, selon le type de bourse. Cela permet aux étudiants de poursuivre leurs études dans un environnement académique stable, sans charges financières, favorisant ainsi la réussite académique."
+    },
+    "stipend_details": {
+      "title": "Les allocations mensuelles",
+      "content": "Les allocations mensuelles accordées dans le cadre de la bourse sont susceptibles d’être ajustées, en fonction de l’évolution du taux d’inflation et des conditions économiques, afin de garantir aux étudiants une couverture adéquate de leurs besoins essentiels tout au long de leur parcours universitaire."
     }
   },
   "Levels": {
@@ -45,6 +66,7 @@
     },
     "score": {
       "license": "Licence ≥ 70%",
+      "graduate": "Master et Doctorat ≥ 75%",
       "medical": "Domaine médical ≥ 90%"
     },
     "docs_title": "Documents requis",
@@ -52,8 +74,22 @@
       "letter": "Lettre de demande (LD)",
       "cv": "CV",
       "diplomas": "Diplômes",
-      "passport": "Passeport"
+      "passport": "Passeport",
+      "recommendation": "Lettre de recommandation",
+      "photo": "Selfie avec un fond blanc"
     }
+  },
+  "Partners": {
+    "title": "Devenir Partenaire",
+    "subtitle": "Unissons nos forces pour l'éducation de demain",
+    "description": "Nous cherchons à établir des partenariats durables avec des universités, des associations et des institutions éducatives pour faciliter l'accès à l'enseignement supérieur.",
+    "form_title": "Formulaire de Partenariat",
+    "org_name": "Nom de l'Organisation / Université",
+    "contact_person": "Personne de Contact",
+    "type": "Type de Partenariat",
+    "message": "Message / Proposition",
+    "submit": "Envoyer la proposition",
+    "success": "Proposition envoyée avec succès !"
   },
   "Form": {
     "title": "Inscription / Application",

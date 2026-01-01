@@ -2,7 +2,7 @@
 
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
-import { Globe, Menu } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -29,6 +29,9 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <Link href="/partners" className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
+                        {t('partners')}
+                    </Link>
                     {['benefits', 'levels', 'requirements', 'contact'].map((key) => (
                         <Link key={key} href={`#${key}`} className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
                             {t(key)}
@@ -63,11 +66,43 @@ export default function Navbar() {
                     </Link>
 
                     {/* Mobile Menu Button */}
-                    <button className="md:hidden p-2 text-stone-600" onClick={() => setIsOpen(!isOpen)}>
-                        <Menu size={24} />
+                    <button className="md:hidden p-2 text-stone-600 z-50 relative" onClick={() => setIsOpen(!isOpen)}>
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            {isOpen && (
+                <div className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6 flex flex-col gap-6 animate-in slide-in-from-top-10 fade-in duration-200">
+                    <div className="flex flex-col space-y-4">
+                        <Link
+                            href="/partners"
+                            className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('partners')}
+                        </Link>
+                        {['benefits', 'levels', 'requirements', 'contact'].map((key) => (
+                            <Link
+                                key={key}
+                                href={`#${key}`}
+                                className="text-lg font-medium text-stone-600 py-2 border-b border-stone-100"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {t(key)}
+                            </Link>
+                        ))}
+                    </div>
+                    <Link
+                        href="/apply"
+                        className="bg-brand-blue text-white px-6 py-4 rounded-xl font-bold text-center shadow-lg active:scale-95 transition-transform"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        {t('apply')}
+                    </Link>
+                </div>
+            )}
         </nav>
     )
 }
