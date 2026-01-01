@@ -139,22 +139,22 @@ export default function ApplicationForm() {
             <div className="space-y-4 pt-4">
                 <h3 className="font-bold text-lg border-b border-stone-100 pb-2">{t('docs_required')}</h3>
                 {['letter', 'cv', 'diplomas', 'passport', 'recommendation', 'photo'].map((docKey) => (
-                    <div key={docKey} className="flex items-center justify-between p-4 bg-stone-50 rounded-lg border border-dashed border-stone-300 hover:border-brand-blue transition-colors">
-                        <span className="font-medium text-gray-700">
+                    <label key={docKey} className={`flex items-center justify-between p-4 rounded-lg border border-dashed cursor-pointer transition-all ${files[docKey] ? 'bg-green-50 border-green-200' : 'bg-stone-50 border-stone-300 hover:border-brand-blue hover:bg-white'}`}>
+                        <span className="font-medium text-gray-700 flex items-center gap-2">
                             {tReq(`documents.${docKey}`)}
-                            {files[docKey] && <span className="ml-2 text-xs text-green-600 font-bold">({files[docKey]?.name})</span>}
+                            {files[docKey] && <span className="text-xs text-green-600 font-bold bg-white px-2 py-0.5 rounded-full shadow-sm">({files[docKey]?.name})</span>}
                         </span>
-                        <label className={`cursor-pointer px-4 py-2 rounded-md shadow-sm border border-stone-200 text-sm font-bold flex items-center gap-2 transition-all ${files[docKey] ? 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100' : 'bg-white hover:bg-stone-50'}`}>
+                        <div className={`px-4 py-2 rounded-md shadow-sm border text-sm font-bold flex items-center gap-2 transition-all ${files[docKey] ? 'bg-green-100 border-green-200 text-green-700' : 'bg-white border-stone-200 text-gray-600'}`}>
                             {files[docKey] ? <CheckCircle size={16} /> : <Upload size={16} />}
-                            {files[docKey] ? 'Selected' : 'Upload'}
-                            <input
-                                type="file"
-                                className="hidden"
-                                onChange={(e) => handleFileChange(docKey, e)}
-                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                            />
-                        </label>
-                    </div>
+                            {files[docKey] ? 'Prêt' : 'Choisir'}
+                        </div>
+                        <input
+                            type="file"
+                            className="hidden"
+                            onChange={(e) => handleFileChange(docKey, e)}
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                        />
+                    </label>
                 ))}
             </div>
 
