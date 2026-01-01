@@ -1,5 +1,6 @@
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-import { Clock, FileText, UserSquare2, GraduationCap, Plane, CheckCircle2, AlertOctagon, StickyNote, Camera } from 'lucide-react';
+import { Clock, FileText, UserSquare2, GraduationCap, Plane, CheckCircle2, AlertOctagon, StickyNote, Camera, ArrowRight } from 'lucide-react';
 
 const docsIcons = {
     letter: FileText,
@@ -15,7 +16,7 @@ export default function Requirements() {
     const docKeys = ['letter', 'cv', 'diplomas', 'passport', 'recommendation', 'photo'] as const;
 
     return (
-        <section className="py-24 bg-stone-50">
+        <section className="py-24 bg-stone-50" id="requirements">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
                     {/* Conditions */}
@@ -78,12 +79,19 @@ export default function Requirements() {
                             {docKeys.map((key) => {
                                 const Icon = docsIcons[key];
                                 return (
-                                    <div key={key} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all text-center border border-stone-100 group hover:-translate-y-1">
+                                    <Link
+                                        key={key}
+                                        href="/apply"
+                                        className="block bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all text-center border border-stone-100 group hover:-translate-y-1 relative overflow-hidden"
+                                    >
+                                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-brand-gold">
+                                            <ArrowRight size={20} />
+                                        </div>
                                         <div className="w-20 h-20 bg-brand-blue/5 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
                                             <Icon size={40} strokeWidth={1.5} />
                                         </div>
                                         <p className="font-bold text-gray-800 text-lg group-hover:text-brand-gold transition-colors">{t(`documents.${key}`)}</p>
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>

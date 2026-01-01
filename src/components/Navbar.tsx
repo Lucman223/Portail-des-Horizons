@@ -59,8 +59,8 @@ export default function Navbar() {
 
                         {isLangOpen && (
                             <>
-                                <div className="fixed inset-0 z-30" onClick={() => setIsLangOpen(false)}></div>
-                                <div className="absolute top-full end-0 mt-2 bg-white rounded-xl shadow-xl border border-stone-100 p-2 transform origin-top-right w-40 z-40 animate-in fade-in zoom-in-95 duration-100">
+                                <div className="fixed inset-0 z-[60]" onClick={() => setIsLangOpen(false)}></div>
+                                <div className="absolute top-full end-0 mt-2 bg-white rounded-xl shadow-2xl border border-stone-200 p-2 transform origin-top-right w-40 z-[61] animate-in fade-in zoom-in-95 duration-100">
                                     {['fr', 'en', 'ar'].map((l) => (
                                         <button
                                             key={l}
