@@ -9,16 +9,16 @@ import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 const backgrounds = [
-    "/images/hero/hero-1.jpg", // Sultan Ahmed (Blue Mosque)
-    "/images/hero/hero-2.jpg", // Bosphorus 
-    "/images/hero/hero-3.jpg", // Istanbul Bridge
-    "/images/hero/hero-4.jpg", // Cappadocia Balloons
-    "/images/hero/hero-5.jpg", // Maiden's Tower (Kiz Kulesi)
-    "/images/hero/hero-6.jpg", // Pamukkale
-    "/images/hero/hero-7.jpg", // Ephesus
-    "/images/hero/hero-8.jpg", // Galata Tower
-    "/images/hero/hero-9.jpg", // Hagia Sophia
-    "/images/hero/hero-10.jpg" // Kas (Coast)
+    { src: "/images/hero/hero-1.jpg", name: "Sultan Ahmed Mosque (Blue Mosque)", location: "Istanbul" },
+    { src: "/images/hero/hero-2.jpg", name: "Bosphorus Bridge", location: "Istanbul" },
+    { src: "/images/hero/hero-3.jpg", name: "15 July Martyrs Bridge", location: "Istanbul" },
+    { src: "/images/hero/hero-4.jpg", name: "Hot Air Balloons", location: "Cappadocia, Nevşehir" },
+    { src: "/images/hero/hero-5.jpg", name: "Maiden's Tower (Kız Kulesi)", location: "Istanbul" },
+    { src: "/images/hero/hero-6.jpg", name: "Travertines of Pamukkale", location: "Denizli" },
+    { src: "/images/hero/hero-7.jpg", name: "Library of Celsus", location: "Ephesus, Izmir" },
+    { src: "/images/hero/hero-8.jpg", name: "Galata Tower", location: "Istanbul" },
+    { src: "/images/hero/hero-9.jpg", name: "Hagia Sophia Grand Mosque", location: "Istanbul" },
+    { src: "/images/hero/hero-10.jpg", name: "Turquoise Coast", location: "Kaş, Antalya" }
 ];
 
 export default function Hero() {
@@ -28,9 +28,9 @@ export default function Hero() {
 
     // Initial preload of all images to ensure smooth loop
     useEffect(() => {
-        backgrounds.forEach((src) => {
+        backgrounds.forEach((bg) => {
             const img = new window.Image();
-            img.src = src;
+            img.src = bg.src;
         });
     }, []);
 
@@ -57,7 +57,7 @@ export default function Hero() {
             {/* Background Layer: Previous Image (Always Visible - prevents black gap) */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none">
                 <Image
-                    src={backgrounds[prevIndex]}
+                    src={backgrounds[prevIndex].src}
                     alt="Background"
                     fill
                     className="object-cover"
@@ -76,13 +76,42 @@ export default function Hero() {
                         className="absolute inset-0"
                     >
                         <Image
-                            src={backgrounds[index]}
-                            alt="Turkey Landscape"
+                            src={backgrounds[index].src}
+                            alt={backgrounds[index].name}
                             fill
                             priority
                             className="object-cover"
                         />
-                        {/* Neutral Overlay attached to image */}
+
+                        {/* Location Metadata Overlay */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1, duration: 1 }}
+                            className="absolute bottom-8 right-8 z-30 hidden md:block" // Hidden on small mobile to avoid clutter, visible on larger screens
+                        >
+                            <div className="bg-black/30 backdrop-blur-md border border-white/20 p-4 rounded-xl text-end shadow-2xl">
+                                <p className="text-white font-bold text-lg tracking-wide">{backgrounds[index].name}</p>
+                                <div className="flex items-center justify-end gap-2 text-brand-gold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                    <span className="text-sm font-medium uppercase tracking-wider">{backgrounds[index].location}</span>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Mobile simplified version */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1 }}
+                            className="absolute bottom-4 left-4 z-30 md:hidden"
+                        >
+                            <div className="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                <span className="text-xs font-bold text-white shadow-sm">{backgrounds[index].location}</span>
+                            </div>
+                        </motion.div>
+
                     </motion.div>
                 </AnimatePresence>
             </div>
