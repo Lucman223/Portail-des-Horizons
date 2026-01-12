@@ -1,17 +1,25 @@
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
 import { logout } from '@/actions/auth';
-import { Users, MousePointer2, FileText, LogOut, CheckCircle, XCircle, Clock } from 'lucide-react';
+import { Users, MousePointer2, FileText, LogOut, CheckCircle, XCircle, User } from 'lucide-react';
+import ApplicationsTable from './ApplicationsTable';
 
 export const dynamic = 'force-dynamic'; // Ensure real-time data
 
 export default async function AdminPage() {
+    const supabase = await createClient();
+
     let visitCount = 0;
     let whatsAppCount = 0;
     let appCount = 0;
     let applications = [];
     let error = null;
+    let userEmail = '';
 
     try {
+        // 0. Fetch User
+        const { data: { user } } = await supabase.auth.getUser();
+        userEmail = user?.email || 'Administrateur';
+
         // 1. Fetch Stats
         const { count: vCount, error: vError } = await supabase.from('stats').select('*', { count: 'exact', head: true }).eq('type', 'visit');
         if (vError) throw vError;
@@ -50,12 +58,24 @@ export default async function AdminPage() {
                         Pannel Administrateur
                     </h1>
 
-                    <form action={logout}>
-                        <button className="text-sm font-medium text-red-600 hover:text-red-700 flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-red-50 transition-colors">
-                            <LogOut size={16} />
-                            Déconnexion
-                        </button>
-                    </form>
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-stone-200 rounded-full shadow-sm">
+                            <div className="bg-brand-blue-dark text-white p-1 rounded-full">
+                                <User size={14} />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-[10px] uppercase text-stone-400 font-bold leading-none">Connecté en tant que</span>
+                                <span className="text-sm font-semibold text-brand-blue-dark leading-none">{userEmail || 'Utilisateur inconnu'}</span>
+                            </div>
+                        </div>
+
+                        <form action={logout}>
+                            <button className="text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-lg transition-colors flex items-center gap-2">
+                                <LogOut size={18} />
+                                <span className="hidden sm:inline">Déconnexion</span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </header>
 
@@ -90,62 +110,12 @@ export default async function AdminPage() {
                 </div>
 
                 {/* Applications Table */}
-                <div className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-                    <div className="p-6 border-b border-stone-200">
-                        <h2 className="text-lg font-bold text-gray-800">Dernières Inscriptions</h2>
-                    </div>
-
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-sm text-left">
-                            <thead className="bg-stone-50 text-gray-500 font-medium border-b border-stone-200">
-                                <tr>
-                                    <th className="px-6 py-4">Estudiante</th>
-                                    <th className="px-6 py-4">Niveau</th>
-                                    <th className="px-6 py-4">Contact</th>
-                                    <th className="px-6 py-4">Status</th>
-                                    <th className="px-6 py-4">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-stone-100">
-                                {applications.map((app: any) => (
-                                    <tr key={app.id} className="hover:bg-stone-50 transition-colors">
-                                        <td className="px-6 py-4 font-medium text-gray-900">{app.full_name}</td>
-                                        <td className="px-6 py-4">
-                                            <span className="px-2 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 uppercase">
-                                                {app.study_level}
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 text-gray-600">
-                                            <div className="flex flex-col">
-                                                <span>{app.email}</span>
-                                                <span className="text-xs text-gray-400">{app.phone}</span>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <StatusBadge status={app.status || 'pending'} />
-                                        </td>
-                                        <td className="px-6 py-4 text-gray-500">
-                                            {new Date(app.created_at).toLocaleDateString('fr-FR', {
-                                                day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
-                                            })}
-                                        </td>
-                                    </tr>
-                                ))}
-                                {(!applications || applications.length === 0) && (
-                                    <tr>
-                                        <td colSpan={5} className="px-6 py-8 text-center text-gray-400 italic">
-                                            Aucune inscription pour le moment.
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <ApplicationsTable applications={applications} />
             </main>
         </div>
     );
 }
+
 
 function StatCard({ title, value, icon: Icon, color }: any) {
     return (
@@ -158,23 +128,5 @@ function StatCard({ title, value, icon: Icon, color }: any) {
                 <p className="text-3xl font-bold text-gray-800">{value}</p>
             </div>
         </div>
-    );
-}
-
-function StatusBadge({ status }: { status: string }) {
-    if (status === 'approved') return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-100">
-            <CheckCircle size={12} /> Approuvé
-        </span>
-    );
-    if (status === 'rejected') return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-50 text-red-700 border border-red-100">
-            <XCircle size={12} /> Rejeté
-        </span>
-    );
-    return (
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-50 text-yellow-700 border border-yellow-100">
-            <Clock size={12} /> En attente
-        </span>
     );
 }

@@ -7,6 +7,7 @@ import "../globals.css"; // Correct path to globals.css
 import Tracker from "@/components/Tracker";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
           <Tracker />
           <Navbar />
           {children}
+          <WhatsAppButton />
           <Footer />
         </NextIntlClientProvider>
       </body>

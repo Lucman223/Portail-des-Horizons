@@ -77,5 +77,9 @@
             "+223 91 43 74 85"
         ],
         "copyright": "© 2025 Educational Horizons Portal. All rights reserved."
+    },
+    "WhatsApp": {
+        "welcome": "Hello! Need any help? Contact our agent directly.",
+        "action": "Chat on WhatsApp"
     }
 }

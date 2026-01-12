@@ -2,27 +2,28 @@
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { createClient } from '@/utils/supabase/server';
 
 export async function login(prevState: any, formData: FormData) {
+    const email = formData.get('email') as string;
     const password = formData.get('password') as string;
-    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'; // Default fallback for dev
 
-    if (password === adminPassword) {
-        // Set a cookie valid for 1 day
-        const oneDay = 24 * 60 * 60 * 1000;
-        (await cookies()).set('admin_session', 'true', {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            expires: Date.now() + oneDay,
-            path: '/',
-        });
-        return { success: true };
-    } else {
-        return { error: 'Mot de passe incorrect' };
+    const supabase = await createClient()
+
+    const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+    })
+
+    if (error) {
+        return { error: error.message };
     }
+
+    return { success: true };
 }
 
 export async function logout() {
-    (await cookies()).delete('admin_session');
-    redirect('/admin/login');
+    const supabase = await createClient()
+    await supabase.auth.signOut()
+    redirect('/admin/portal');
 }

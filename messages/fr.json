@@ -10,7 +10,8 @@
     "levels": "Niveaux",
     "requirements": "Conditions",
     "contact": "Contact",
-    "apply": "Postuler"
+    "apply": "Postuler",
+    "presentation": "Qui sommes-nous ?"
   },
   "Universities": {
     "title": "Étudier en Turquie : Votre Guide Complet",
@@ -200,6 +201,27 @@
     "success_title": "Demande Reçue !",
     "success_msg": "Nous vous contacterons exclusivement par WhatsApp. Veuillez cliquer ci-dessous pour confirmer votre envoi."
   },
+  "Mission": {
+    "title": "Mission de Portail des Horizons",
+    "description": "Portail des Horizons est votre portail dédié à l'excellence académique mondiale. Nous facilitons l'inscription des étudiants aux universités prestigieuses à travers le globe, en offrant un accompagnement personnalisé et des solutions complètes : recherche de bourses pour ceux en quête d'opportunités, achat de billets d'avion, assurances voyage et services logistiques essentiels.",
+    "commitment_title": "Notre engagement ?",
+    "commitment": "Transformer les rêves en réalités, en redonnant espoir aux étudiants talentueux qui méritent une seconde chance, pour un avenir sans frontières."
+  },
+  "Presentation": {
+    "gallery": {
+      "title": "Galerie Multimédia",
+      "subtitle": "Découvrez notre univers",
+      "videos": "Vidéos",
+      "photos": "Photos"
+    },
+    "universities": {
+      "title": "Nos Universités Partenaires",
+      "subtitle": "Un réseau d'excellence",
+      "partner_network": "Réseau Académique",
+      "description": "Nous collaborons avec les meilleures universités pour vous offrir des opportunités d'études exceptionnelles. Cette section présentera bientôt en détail nos partenaires académiques et les programmes disponibles."
+    },
+    "coming_soon": "Bientôt disponible"
+  },
   "Footer": {
     "contact_us": "Contactez-nous",
     "phones": [
@@ -207,5 +229,9 @@
       "+223 91 43 74 85"
     ],
     "copyright": "© 2025 Portail Des Horizons. Tous droits réservés."
+  },
+  "WhatsApp": {
+    "welcome": "Bonjour ! Besoin d'aide ? Contactez notre agent directement.",
+    "action": "Discuter sur WhatsApp"
   }
 }

@@ -32,6 +32,9 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <Link href="/presentation" className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
+                        {t('presentation')}
+                    </Link>
                     <Link href="/universities" className="text-stone-600 hover:text-brand-blue font-medium transition-colors">
                         {t('universities')}
                     </Link>
@@ -91,6 +94,13 @@ export default function Navbar() {
             {isOpen && (
                 <div className="absolute top-full left-4 right-4 z-40 bg-white md:hidden p-6 flex flex-col gap-4 rounded-2xl shadow-2xl border border-stone-100 animate-in slide-in-from-top-2 fade-in duration-200 mt-2">
                     <div className="flex flex-col space-y-2">
+                        <Link
+                            href="/presentation"
+                            className="text-lg font-medium text-stone-600 py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {t('presentation')}
+                        </Link>
                         <Link
                             href="/universities"
                             className="text-lg font-medium text-stone-600 py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors"

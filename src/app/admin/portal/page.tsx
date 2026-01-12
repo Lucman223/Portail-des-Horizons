@@ -43,6 +43,16 @@ export default function LoginPage() {
 
                 <form action={formAction} className="space-y-6">
                     <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-all"
+                            placeholder="admin@example.com"
+                        />
+                    </div>
+                    <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
                         <input
                             type="password"
