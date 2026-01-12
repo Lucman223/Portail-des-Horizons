@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 import { logout } from '@/actions/auth';
 import { Users, MousePointer2, FileText, LogOut, CheckCircle, XCircle, User } from 'lucide-react';
 import ApplicationsTable from './ApplicationsTable';
+import AnalyticsTable from './AnalyticsTable';
 
 export const dynamic = 'force-dynamic'; // Ensure real-time data
 
@@ -108,6 +109,9 @@ export default async function AdminPage() {
                         color="bg-brand-gold"
                     />
                 </div>
+
+                {/* Analytics Table (Visitors) */}
+                <AnalyticsTable />
 
                 {/* Applications Table */}
                 <ApplicationsTable applications={applications} />
