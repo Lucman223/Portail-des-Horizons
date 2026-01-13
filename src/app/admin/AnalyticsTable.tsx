@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { MapPin, Smartphone, Calendar, Search } from "lucide-react";
+import { MapPin, Smartphone, Calendar, Search, Shield } from "lucide-react";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
@@ -96,7 +96,14 @@ export default function AnalyticsTable() {
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     {stat.country ? (
                                         <div className="flex flex-col">
-                                            <span className="font-medium text-gray-800">{stat.country}</span>
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-medium text-gray-800">{stat.country}</span>
+                                                {stat.role === 'admin' && (
+                                                    <span className="bg-brand-blue-dark text-white text-[10px] px-1.5 py-0.5 rounded flex items-center gap-1">
+                                                        <Shield size={10} /> ADMIN
+                                                    </span>
+                                                )}
+                                            </div>
                                             <span className="text-xs text-stone-500">{stat.city || 'Ville inconnue'}</span>
                                         </div>
                                     ) : (

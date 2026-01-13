@@ -32,7 +32,11 @@ export default function Tracker() {
                     console.error('Failed to fetch IP data:', e);
                 }
 
-                // 3. Save to Supabase
+                // 3. Get User Session (for Admin detection)
+                const { data: { session } } = await supabase.auth.getSession();
+                const role = session ? 'admin' : 'visitor';
+
+                // 4. Save to Supabase
                 await supabase.from('stats').insert({
                     type: 'visit',
                     ip: ipData.ip,
@@ -41,7 +45,8 @@ export default function Tracker() {
                     device: deviceType,
                     os: os,
                     browser: browser,
-                    user_agent: userAgent
+                    user_agent: userAgent,
+                    role: role
                 });
 
                 // Mark as visited for this session
